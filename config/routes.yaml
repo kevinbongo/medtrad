@@ -1,3 +1,28 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:    
+   path: /
+   controller: App\Controller\FrontController::index
+
+produitsparcategories:
+   path: /produits-par-categories/{categorie}
+   controller: App\Controller\FrontController::ProduitsParCategories
+
+contact:
+   path: /contact
+   controller: App\Controller\FrontController::Contact
+
+blog:
+   path: /blog
+   controller: App\Controller\FrontController::AffichageBlog
+
+wishlist:
+   path: /wishlist
+   controller: App\Controller\FrontController::AffichageWishlist
+
+panier:
+   path: /panier
+   controller: App\Controller\FrontController::AffichagePanier
+
+checkout:
+   path: /checkout
+   controller: App\Controller\FrontController::AffichageCheckout
+   
