@@ -277,138 +277,21 @@
 										<div class="mega-menu">
 											<div class="container">
 												<div class="mega-menu__row">
+													{% for cat in cats.getCategories %}
+														<div class="mega-menu__column">
 
-													<div class="mega-menu__column">
-														<h4>Wound Care</h4>
-														<ul class="sub-menu--mega">
-															<li>
-																<a href="category-list.html">Bandages</a>
-															</li>
-															<li>
-																<a href="category-list.html">Gypsum foundations</a>
-															</li>
-															<li>
-																<a href="category-list.html">Patches and tapes</a>
-															</li>
-															<li>
-																<a href="category-list.html">Stomatology</a>
-															</li>
-															<li>
-																<a href="category-list.html">Surgical sutures</a>
-															</li>
-															<li>
-																<a href="category-list.html">Uniforms</a>
-															</li>
-															<li>
-																<a href="category-list.html">Wound healing</a>
-															</li>
-														</ul>
-													</div>
-													<div class="mega-menu__column">
-														<h4>Higiene</h4>
-														<ul class="sub-menu--mega">
-															<li>
-																<a href="category-list.html">Disposable products</a>
-															</li>
-															<li>
-																<a href="category-list.html">Face masks</a>
-															</li>
-															<li>
-																<a href="category-list.html">Gloves</a>
-															</li>
-															<li>
-																<a href="category-list.html">Protective covers</a>
-															</li>
-															<li>
-																<a href="category-list.html">Sterilization</a>
-															</li>
-															<li>
-																<a href="category-list.html">Surgical foils</a>
-															</li>
-															<li>
-																<a href="category-list.html">Uniforms</a>
-															</li>
-														</ul>
-													</div>
-													<div class="mega-menu__column">
-														<h4>Laboratory</h4>
-														<ul class="sub-menu--mega">
-															<li>
-																<a href="category-list.html">Devices</a>
-															</li>
-															<li>
-																<a href="category-list.html">Diagnostic tests</a>
-															</li>
-															<li>
-																<a href="category-list.html">Disinfectants</a>
-															</li>
-															<li>
-																<a href="category-list.html">Dyes</a>
-															</li>
-															<li>
-																<a href="category-list.html">Pipettes</a>
-															</li>
-															<li>
-																<a href="category-list.html">Test-tubes</a>
-															</li>
-															<li>
-																<a href="category-list.html">Tubes</a>
-															</li>
-														</ul>
-													</div>
-													<div class="mega-menu__column">
-														<h4>Tools</h4>
-														<ul class="sub-menu--mega">
-															<li>
-																<a href="category-list.html">Accessories Tools</a>
-															</li>
-															<li>
-																<a href="category-list.html">Blood pressure</a>
-															</li>
-															<li>
-																<a href="category-list.html">Capsules</a>
-															</li>
-															<li>
-																<a href="category-list.html">Dental</a>
-															</li>
-															<li>
-																<a href="category-list.html">Micrscope</a>
-															</li>
-															<li>
-																<a href="category-list.html">Pressure</a>
-															</li>
-															<li>
-																<a href="category-list.html">Sugar level</a>
-															</li>
-														</ul>
-													</div>
-													<div class="mega-menu__column">
-														<h4>Diagnosis</h4>
-														<ul class="sub-menu--mega">
-															<li>
-																<a href="category-list.html">Biopsy tools</a>
-															</li>
-															<li>
-																<a href="category-list.html">Endoscopes</a>
-															</li>
-															<li>
-																<a href="category-list.html">Monitoring</a>
-															</li>
-															<li>
-																<a href="category-list.html">Otoscopes</a>
-															</li>
-															<li>
-																<a href="category-list.html">Oxygen concentrators</a>
-															</li>
-															<li>
-																<a href="category-list.html">Tables and assistants</a>
-															</li>
-															<li>
-																<a href="category-list.html">Thermometer</a>
-															</li>
-														</ul>
-													</div>
+															<h4>{{cat.nomcategorie}}</h4>
+															{% for type in cat.getTypes() %}
 
+
+																<ul class="sub-menu--mega">
+																	<li>
+																		<a href="category-list.html">{{type.nomtype}}</a>
+																	</li>
+																</ul>
+															{% endfor %}
+														</div>
+													{% endfor %}
 
 												</div>
 												<div class="ps-branch">
@@ -462,48 +345,13 @@
 												<div class="mega-menu__row">
 													<div class="mega-menu__column col-12 col-md-3">
 														<ul class="sub-menu--mega sub-menu--bold">
-															<li>
-																<a href="category-list.html">Diagnosis</a>
-															</li>
-															<li>
-																<a href="category-list.html">Accessories Tools</a>
-															</li>
-															<li>
-																<a href="category-list.html">Bandages</a>
-															</li>
-															<li>
-																<a href="category-list.html">Biopsy tools</a>
-															</li>
-															<li>
-																<a href="category-list.html">Blades</a>
-															</li>
-															<li>
-																<a href="category-list.html">Blood pressure</a>
-															</li>
-															<li>
-																<a href="category-list.html">Capsules</a>
-															</li>
-															<li>
-																<a href="category-list.html">Dental</a>
-															</li>
-															<li>
-																<a href="category-list.html">Devices</a>
-															</li>
-															<li>
-																<a href="category-list.html">Diagnostic tests</a>
-															</li>
-															<li>
-																<a href="category-list.html">Disposable products</a>
-															</li>
-															<li>
-																<a href="category-list.html">Education</a>
-															</li>
-															<li>
-																<a href="category-list.html">Endoscopes</a>
-															</li>
-															<li>
-																<a href="category-list.html">Equipment</a>
-															</li>
+															{% for type in types.getTypes %}
+
+
+																<li>
+																	<a href="category-list.html">{{type.nomtype}}</a>
+																</li>
+															{% endfor %}
 															<li>
 																<a href="category-list.html">Show all</a>
 															</li>

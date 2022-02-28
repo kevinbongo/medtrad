@@ -1,5 +1,11 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_4_layout.html.twig']
+    globals: 
+       cats: '@App\Twig\CatsExtension'
+       types: '@App\Twig\TypesExtension'
+       marques: '@App\Twig\MarquesExtension'
+
 
 when@test:
     twig:

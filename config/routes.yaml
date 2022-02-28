@@ -3,8 +3,12 @@ index:
    controller: App\Controller\FrontController::index
 
 produitsparcategories:
-   path: /produits-par-categories/{categorie}
+   path: /produits-par-categories/{nomcategorie}
    controller: App\Controller\FrontController::ProduitsParCategories
+
+produitsfiltre:
+   path: /produits-par-categories/{nomcategorie}
+   controller: App\Controller\FrontController::ResultatsFiltre
 
 contact:
    path: /contact
@@ -25,4 +29,13 @@ panier:
 checkout:
    path: /checkout
    controller: App\Controller\FrontController::AffichageCheckout
+
+produitdetail:
+   path: /produit-detail/{id}
+   controller: App\Controller\FrontController::AffichageProduitDetail
+
+postdetail:
+   path: /post-detail/{id}
+   controller: App\Controller\FrontController::AffichagePostDetail
+
    
