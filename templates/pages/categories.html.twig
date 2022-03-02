@@ -373,7 +373,7 @@
 												<div class="ps-product__badge"></div>
 											</div>
 											<div class="ps-product__content">
-												<a class="ps-product__branch" href="#">{{produit.marque}}</a>
+												<a class="ps-product__branch" href="#">Branch</a>
 												<h5 class="ps-product__title">
 													<a href="{{ path('produitdetail',{id:produit.id})}}">{{produit.nomproduit}}</a>
 												</h5>
@@ -508,9 +508,9 @@
 											<div id="slide-price"></div>
 										</div>
 										<div class="ps-widget__input">
-											<input class="ps-price" id="slide-price-min" value="$0" name="min">
+											<input type="integer" class="ps-price" id="slide-price-min" value="0" name="min">
 											<span class="bridge">-</span>
-											<input class="ps-price" id="slide-price-max" value="$820" name="max">
+											<input type="integer" class="ps-price" id="slide-price-max" value="820" name="max">
 										</div>
 										<button type="submit" class="ps-widget__filter">Filter</button>
 									</div>
@@ -524,7 +524,7 @@
 										{% for marque in marques.getMarques %}
 											<div class="ps-widget__item">
 												<div class="custom-control custom-checkbox">
-													<input class="custom-control-input" type="checkbox" id="{{marque.nommarque}}" name="marques[]">
+													<input class="custom-control-input" type="checkbox" id="{{marque.nommarque}}" name="marques[]" value="{{marque.id}}">
 													<label class="custom-control-label" for="{{marque.nommarque}}">{{marque.nommarque}}</label>
 												</div>
 											</div>

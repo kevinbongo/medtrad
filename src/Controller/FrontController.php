@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Categorie;
 use App\Entity\Produit;
 use App\Entity\User;
+use App\Repository\MarqueRepository;
 use App\Repository\PostRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,6 +29,11 @@ class FrontController extends AbstractController
     private $postrepository;
     /**
      * 
+     * @var MarqueRepository
+     */
+    private $marquerepository;
+    /**
+     * 
      * @var EntityManagerInterface
      */
     private $om;
@@ -35,10 +41,11 @@ class FrontController extends AbstractController
      * 
      * @param EnvironnementRepository $repository
      */
-    public function __construct(ProduitRepository $produitrepository, PostRepository $postrepository,  EntityManagerInterface $om)
+    public function __construct(ProduitRepository $produitrepository, PostRepository $postrepository, MarqueRepository $marquerepository,  EntityManagerInterface $om)
     {
         $this->produitrepository = $produitrepository;
         $this->postrepository = $postrepository;
+        $this->marquerepository = $marquerepository;
         $this->om = $om;
     }
 
@@ -48,12 +55,11 @@ class FrontController extends AbstractController
 
     public function index(UserPasswordEncoderInterface $encoder): Response
     {
-        phpinfo();
         $user = new User();
-        $plainPassword = 'MyMedi225';
+        $plainPassword = 'Mymedi225';
         $encoded = $encoder->encodePassword($user, $plainPassword);
-        $produitsrecents = $this->produitrepository->findRecentProducts();
         var_dump($encoded);
+        $produitsrecents = $this->produitrepository->findRecentProducts();
         return $this->render('pages/accueil.html.twig', [
             'produitsrecents' => $produitsrecents
 
@@ -77,18 +83,25 @@ class FrontController extends AbstractController
 
     public function ResultatsFiltre(Categorie $categorie, Request $request): Response
     {
-        echo 'test';
         $types = $categorie->getTypes();
         $produits = [];
         foreach ($types as $type) {
             $produits = array_merge($produits, $this->produitrepository->findProductsByTypes($type));
         }
+        $mqs = [];
         $min = $request->get('min');
         $max = $request->get('max');
         $marques = $request->get('marques');
+        /*foreach ($marques as $marque) {
+            $m = $this->marquerepository->findOneByName($marque);
+            $mqs = array_push($mqs, (object) $m);
+        }*/
         $notes = $request->get('notes');
         $produitsfiltre = $this->produitrepository->findSearch($min, $max, $marques, $notes);
-        $produits = array_intersect($produits, $produitsfiltre);
+        $produits =   array_uintersect($produits, $produitsfiltre, function ($produits, $produitsfiltre) {
+            return strcmp(spl_object_hash($produits), spl_object_hash($produitsfiltre));
+        });
+
         $nombredeproduits = count($produits);
 
         return $this->render('pages/categories.html.twig', [

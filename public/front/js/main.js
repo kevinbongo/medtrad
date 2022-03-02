@@ -456,7 +456,7 @@
             });
 
             rangeSlider.noUiSlider.on("update", function (values, handle) {
-                inputs[handle].value = '$' + values[handle];
+                inputs[handle].value = values[handle];
             });
         }
     }

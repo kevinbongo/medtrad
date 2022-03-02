@@ -7,7 +7,7 @@ produitsparcategories:
    controller: App\Controller\FrontController::ProduitsParCategories
 
 produitsfiltre:
-   path: /produits-par-categories/{nomcategorie}
+   path: /produits-par-categories-filtre/{nomcategorie}
    controller: App\Controller\FrontController::ResultatsFiltre
 
 contact:
